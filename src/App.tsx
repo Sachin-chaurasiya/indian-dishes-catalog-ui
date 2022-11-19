@@ -60,23 +60,29 @@ export const App = () => {
               size="xl"
             />
           ) : (
-            <Grid
-              mt={4}
-              pr={4}
-              pl={4}
-              templateColumns={{
-                sm: 'repeat(1, 1fr)',
-                md: 'repeat(2, 1fr)',
-                lg: 'repeat(3, 1fr)',
-              }}
-              gap={6}
-            >
-              {foods.map((food) => (
-                <GridItem key={food._id}>
-                  <FoodCard food={food} />
-                </GridItem>
-              ))}
-            </Grid>
+            <>
+              {foods.length === 0 ? (
+                <Heading>No Dishes Found</Heading>
+              ) : (
+                <Grid
+                  mt={4}
+                  pr={4}
+                  pl={4}
+                  templateColumns={{
+                    sm: 'repeat(1, 1fr)',
+                    md: 'repeat(2, 1fr)',
+                    lg: 'repeat(3, 1fr)',
+                  }}
+                  gap={6}
+                >
+                  {foods.map((food) => (
+                    <GridItem key={food._id}>
+                      <FoodCard food={food} />
+                    </GridItem>
+                  ))}
+                </Grid>
+              )}
+            </>
           )}
         </Grid>
       </Box>
