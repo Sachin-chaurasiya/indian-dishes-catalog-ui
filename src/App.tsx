@@ -6,6 +6,8 @@ import {
   theme,
   GridItem,
   Spinner,
+  Flex,
+  Heading,
 } from '@chakra-ui/react';
 import { useEffect } from 'react';
 import { ColorModeSwitcher } from './ColorModeSwitcher';
@@ -37,7 +39,17 @@ export const App = () => {
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
         <Grid p={4}>
-          <ColorModeSwitcher justifySelf="flex-end" />
+          <Flex
+            pl={4}
+            pr={4}
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Heading size="md" justifySelf="flex-start">
+              Indian Dishesh
+            </Heading>
+            <ColorModeSwitcher justifySelf="flex-end" />
+          </Flex>
           {isLoading ? (
             <Spinner
               margin="auto"
@@ -50,7 +62,8 @@ export const App = () => {
           ) : (
             <Grid
               mt={4}
-              p={4}
+              pr={4}
+              pl={4}
               templateColumns={{
                 sm: 'repeat(1, 1fr)',
                 md: 'repeat(2, 1fr)',

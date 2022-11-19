@@ -4,7 +4,6 @@ import {
   Flex,
   Grid,
   Heading,
-  HStack,
   Image,
   Stack,
   Tag,
@@ -31,7 +30,7 @@ const FoodCard: FC<Props> = ({ food }) => {
   const dietIcon = <BiFoodTag style={iconStyles} />;
 
   return (
-    <Card shadow="md">
+    <Card shadow="md" border="1px">
       <CardBody>
         <Image margin="auto" borderRadius="lg" src={FoodImage} boxSize={250} />
         <Stack mt={2}>
