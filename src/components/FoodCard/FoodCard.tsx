@@ -15,6 +15,7 @@ import React, { CSSProperties, FC } from 'react';
 import FoodImage from '../../assets/svg/indian-food.png';
 import { CiTimer } from 'react-icons/ci';
 import { BiFoodTag } from 'react-icons/bi';
+import { uniqueId } from 'lodash';
 
 interface Props {
   food: FoodItem;
@@ -39,7 +40,7 @@ const FoodCard: FC<Props> = ({ food }) => {
           <Text color="GrayText">Ingredients</Text>
           <Flex alignItems="center" justifyContent="center" gap={2} wrap="wrap">
             {food.ingredients.split(',').map((ingredient) => (
-              <Tag>{ingredient}</Tag>
+              <Tag key={uniqueId()}>{ingredient}</Tag>
             ))}
           </Flex>
           <Divider />
