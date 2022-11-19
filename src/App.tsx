@@ -14,6 +14,7 @@ import { ColorModeSwitcher } from './ColorModeSwitcher';
 import { getFoods } from './api/food';
 import { FoodItem } from 'food';
 import FoodCard from './components/FoodCard/FoodCard';
+import Footer from './components/Footer/Footer';
 
 export const App = () => {
   const [foods, setFoods] = useState<FoodItem[]>([]);
@@ -85,6 +86,7 @@ export const App = () => {
             </>
           )}
         </Grid>
+        <Footer />
       </Box>
     </ChakraProvider>
   );
