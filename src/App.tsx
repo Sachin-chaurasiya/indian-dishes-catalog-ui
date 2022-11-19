@@ -1,38 +1,72 @@
-import * as React from "react"
+import React, { useState } from 'react';
 import {
   ChakraProvider,
   Box,
-  Text,
-  Link,
-  VStack,
-  Code,
   Grid,
   theme,
-} from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+  GridItem,
+  Spinner,
+} from '@chakra-ui/react';
+import { useEffect } from 'react';
+import { ColorModeSwitcher } from './ColorModeSwitcher';
+import { getFoods } from './api/food';
+import { FoodItem } from 'food';
+import FoodCard from './components/FoodCard/FoodCard';
 
-export const App = () => (
-  <ChakraProvider theme={theme}>
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
-        <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack>
-      </Grid>
-    </Box>
-  </ChakraProvider>
-)
+export const App = () => {
+  const [foods, setFoods] = useState<FoodItem[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const fetchFoods = async () => {
+    setIsLoading(true);
+    try {
+      const { data } = await getFoods();
+      setFoods(data ?? []);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchFoods();
+  }, []);
+
+  return (
+    <ChakraProvider theme={theme}>
+      <Box textAlign="center" fontSize="xl">
+        <Grid p={4}>
+          <ColorModeSwitcher justifySelf="flex-end" />
+          {isLoading ? (
+            <Spinner
+              margin="auto"
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="teal.500"
+              size="xl"
+            />
+          ) : (
+            <Grid
+              mt={4}
+              p={4}
+              templateColumns={{
+                sm: 'repeat(1, 1fr)',
+                md: 'repeat(2, 1fr)',
+                lg: 'repeat(3, 1fr)',
+              }}
+              gap={6}
+            >
+              {foods.map((food) => (
+                <GridItem key={food._id}>
+                  <FoodCard food={food} />
+                </GridItem>
+              ))}
+            </Grid>
+          )}
+        </Grid>
+      </Box>
+    </ChakraProvider>
+  );
+};
