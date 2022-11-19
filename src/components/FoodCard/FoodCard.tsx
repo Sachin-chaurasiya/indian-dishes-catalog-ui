@@ -56,6 +56,18 @@ const FoodCard: FC<Props> = ({ food }) => {
             <Text color="GrayText">Diet {dietIcon}</Text>
             <Text>{food.diet}</Text>
           </Grid>
+          <Grid templateColumns="repeat(2, 1fr)">
+            <Text color="GrayText">State</Text>
+            <Text>{food.state}</Text>
+          </Grid>
+          <Grid templateColumns="repeat(2, 1fr)">
+            <Text color="GrayText">Region</Text>
+            <Text>{food.region}</Text>
+          </Grid>
+          <Grid templateColumns="repeat(2, 1fr)">
+            <Text color="GrayText">Flavor</Text>
+            <Text>{food.flavor_profile}</Text>
+          </Grid>
         </Stack>
       </CardBody>
     </Card>
