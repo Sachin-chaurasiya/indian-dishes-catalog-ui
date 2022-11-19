@@ -46,7 +46,7 @@ export const App = () => {
             justifyContent="space-between"
           >
             <Heading size="md" justifySelf="flex-start">
-              Indian Dishesh
+              Indian Dishes
             </Heading>
             <ColorModeSwitcher justifySelf="flex-end" />
           </Flex>
