@@ -1,6 +1,7 @@
 import {
   Card,
   CardBody,
+  Divider,
   Flex,
   Grid,
   Heading,
@@ -41,6 +42,7 @@ const FoodCard: FC<Props> = ({ food }) => {
               <Tag>{ingredient}</Tag>
             ))}
           </Flex>
+          <Divider />
           <Grid templateColumns="repeat(2, 1fr)">
             <Text color="GrayText">Preparation Time {timeIcon}</Text>
             <Text>{food.prep_time} min</Text>
