@@ -1,6 +1,7 @@
-import { Button, Flex, Input } from '@chakra-ui/react';
+import { Flex, IconButton, Input } from '@chakra-ui/react';
 import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
+import { CgSearch } from 'react-icons/cg';
 
 const SearchBar = () => {
   const navigate = useNavigate();
@@ -40,7 +41,11 @@ const SearchBar = () => {
         value={search}
         onChange={handleSearchOnChange}
       />
-      <Button onClick={handleSearch}>Search</Button>
+      <IconButton
+        aria-label="Search database"
+        icon={<CgSearch />}
+        onClick={handleSearch}
+      />
     </Flex>
   );
 };

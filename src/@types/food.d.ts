@@ -24,4 +24,9 @@ declare module 'food' {
     status: string;
     pagination: Pagination;
   }
+
+  export type Filter = {
+    state: string;
+    course: string;
+  };
 }
