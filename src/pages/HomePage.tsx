@@ -1,6 +1,6 @@
 import { Text } from '@chakra-ui/react';
 import { FoodItem, Pagination } from 'food';
-import { isUndefined, unionBy, uniqBy } from 'lodash';
+import { isUndefined, uniqBy } from 'lodash';
 import React, {
   Fragment,
   useCallback,
