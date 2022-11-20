@@ -13,3 +13,11 @@ export const getFoods = async ({ limit = 12, page = 1 }: Param) => {
 
   return response.data;
 };
+
+export const searchFoods = async (search: string) => {
+  const response = await API_CLIENT.get<FoodListResponse>('/', {
+    params: { search },
+  });
+
+  return response.data;
+};

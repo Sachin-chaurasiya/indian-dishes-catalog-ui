@@ -5,13 +5,16 @@ import FoodCard from '../FoodCard/FoodCard';
 
 interface Props {
   foods: FoodItem[];
+  searchTerm?: string;
 }
 
-const FoodCardList: FC<Props> = ({ foods }) => {
+const FoodCardList: FC<Props> = ({ foods, searchTerm }) => {
   return (
     <>
       {foods.length === 0 ? (
-        <Heading>No Dishes Found</Heading>
+        <Heading>{`No dishes found ${
+          searchTerm ? `for "${searchTerm}"` : ''
+        }`}</Heading>
       ) : (
         <Grid
           mt={4}

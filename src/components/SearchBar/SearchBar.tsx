@@ -20,7 +20,7 @@ const SearchBar = () => {
 
   const handleSearch = () => {
     if (search) {
-      navigate({ pathname: '/', search: `search=${search}` });
+      navigate({ pathname: '/search-results', search: `search=${search}` });
     } else {
       navigate('/', { replace: true });
     }
