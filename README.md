@@ -6,5 +6,6 @@
 
 ### Search Page
 
-![image](https://user-images.githubusercontent.com/59080942/202895776-8c8ac673-78ca-4b9b-9658-eae00c35031a.png)
+![image](https://user-images.githubusercontent.com/59080942/202916411-7b621de9-04ce-4b89-bc1b-20de56ff2826.png)
+
 
