@@ -1,6 +1,6 @@
-import { Button, Flex, Input, InputProps } from '@chakra-ui/react';
+import { Button, Flex, Input } from '@chakra-ui/react';
 import React, { useEffect, useMemo, useState } from 'react';
-import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const SearchBar = () => {
   const navigate = useNavigate();
