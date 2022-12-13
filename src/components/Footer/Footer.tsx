@@ -7,7 +7,7 @@ const Footer = () => {
       <Box borderTop="1px" p={6} mt={8}>
         Made with ❤️ by{' '}
         <Link
-          href="https://sachinchaurasiy.dev"
+          href="https://sachinchaurasiya.dev"
           textDecoration="underline"
           target="_blank"
         >
